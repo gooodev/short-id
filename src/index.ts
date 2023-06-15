@@ -15,10 +15,18 @@ const arrayBufferToBase64Url = (arrayBuffer: ArrayBuffer) => {
 }
 
 export const shortId = () => {
-  if (window && !window.crypto) {
-    throw new Error('crypto is not supported');
-  } else if (!window && !crypto) {
-    global.crypto = require('node:crypto');
+  if (typeof window !== "undefined") {
+    if (window.crypto == null) {
+      throw new Error('crypto is not supported');
+    }
+  } else {
+    if (global.crypto == null) {
+      const crypto = require('node:crypto');
+      if (crypto == null) {
+        throw new Error('crypto is not supported');
+      }
+      global.crypto = crypto;
+    }
   }
   const uuid = crypto.randomUUID();
   const buffer = uuidToUint8Array(uuid);

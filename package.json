@@ -1,6 +1,6 @@
 {
   "name": "@gooodev/short-id",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Short id generator for both browser and Node.js",
   "repository": {
     "type": "git",
