@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const uuidToUint8Array = (target: string) => {
   const uuid = target.replace(/-/g, '');
   const bytes = new Uint8Array(16);
@@ -15,20 +17,7 @@ const arrayBufferToBase64Url = (arrayBuffer: ArrayBuffer) => {
 }
 
 export const shortId = () => {
-  if (typeof window !== "undefined") {
-    if (window.crypto == null) {
-      throw new Error('crypto is not supported');
-    }
-  } else {
-    if (global.crypto == null) {
-      const crypto = require('node:crypto');
-      if (crypto == null) {
-        throw new Error('crypto is not supported');
-      }
-      global.crypto = crypto;
-    }
-  }
-  const uuid = crypto.randomUUID();
+  const uuid = uuidv4();
   const buffer = uuidToUint8Array(uuid);
   const base64url = arrayBufferToBase64Url(buffer);
 
