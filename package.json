@@ -1,0 +1,31 @@
+{
+  "name": "@goodev/short-id",
+  "version": "0.0.1",
+  "description": "Short id generator for both browser and Node.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gooodev/short-id"
+  },
+  "author": "gooodev <ryo.ssk323@gmail.com> (https://github.com/gooodev)",
+  "license": "ISC",
+  "keywords": [
+    "uuid"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs",
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "build": "pnpm tsup && pnpm tsc"
+  },
+  "devDependencies": {
+    "tsup": "^6.7.0",
+    "typescript": "^5.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
