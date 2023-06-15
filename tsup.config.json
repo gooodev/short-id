@@ -5,7 +5,7 @@
   },
   "dts": false,
   "clean": true,
-  "format": ["cjs", "esm"],
+  "format": ["cjs", "esm", "iife"],
   "bundle": true,
   "tsconfig": "tsconfig.json",
   "platform": "node",
